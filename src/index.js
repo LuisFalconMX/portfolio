@@ -9,6 +9,6 @@ import '@styles/library/tailwind.components.pcss'
 import '@styles/library/tailwind.utilities.pcss'
 
 // Components
-import App from './containers/App'
+import App from './routes/App'
 
 ReactDOM.render(<App />, document.getElementById('app'))

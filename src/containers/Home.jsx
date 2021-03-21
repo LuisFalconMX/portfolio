@@ -1,6 +1,6 @@
 import React from 'react'
 import Hello from '../components/Hello'
 
-const App = () => <Hello />
+const Home = () => <Hello />
 
-export default App
+export default Home
