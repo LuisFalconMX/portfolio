@@ -1,6 +1,7 @@
 import React from 'react'
 import '@styles/components/Navbar.pcss'
 import Logo from '@images/logo.png'
+import { Download } from 'react-feather'
 import Button from './Button'
 
 const Navbar = () => (
@@ -18,7 +19,7 @@ const Navbar = () => (
           <a href="link">Proyectos</a>
         </li>
       </ul>
-      <Button type="button" message="Descargar CV" />
+      <Button type="button" message="Descargar CV" icon={<Download />} link="projects" />
     </nav>
   </header>
 )
