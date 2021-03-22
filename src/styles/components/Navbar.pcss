@@ -1,9 +1,13 @@
 .navbar {
   width: 100%;
   @apply sticky top-0;
-  @apply pt-4 pb-4 pl-8 pr-8;
-  @apply grid grid-cols-2;
-  @apply bg-dark text-light;
+  @apply px-3 py-4 md:px-8;
+  @apply grid grid-cols-2 items-center;
+  @apply bg-light dark:bg-dark text-dark dark:text-light;
+}
+
+.navbar__icon {
+  @apply ml-auto md:hidden;
 }
 
 .navbar__sitemark {
@@ -11,11 +15,11 @@
 }
 
 .navbar__logo {
-  @apply mr-8;
+  @apply mr-4 md:mr-8;
 }
 
 .navbar__title {
-  @apply text-2xl font-bold;
+  @apply text-xl md:text-2xl font-bold;
 }
 
 .navbar__menu {
@@ -24,6 +28,7 @@
 
 .navbar__links {
   @apply flex items-center;
+  @apply hidden md:flex;
 }
 
 .navbar__links li {
@@ -32,4 +37,8 @@
 
 .navbar__links li a {
   @apply text-lg font-semibold;
+}
+
+.navbar__button {
+  @apply hidden md:block;
 }
