@@ -19,7 +19,13 @@ const Navbar = () => (
           <a href="link">Proyectos</a>
         </li>
       </ul>
-      <Button type="button" message="Descargar CV" icon={<Download />} link="projects" />
+      <Button
+        type="button"
+        message="Descargar CV"
+        icon={<Download />}
+        iconPosition="right"
+        link="projects"
+      />
     </nav>
   </header>
 )
