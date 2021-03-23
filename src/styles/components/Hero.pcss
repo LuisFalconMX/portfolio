@@ -1,0 +1,34 @@
+.hero {
+  width: 100%;
+  min-height: 640px;
+  @apply px-4 md:px-8 lg:px-16;
+  @apply container mx-auto;
+  @apply grid grid-cols-1 md:grid-cols-2 gap-x-3;
+  @apply text-black dark:text-light;
+  @apply items-center justify-items-center;
+}
+
+.hero__content-left {
+  max-width: 620px;
+}
+
+.hero__content-right {
+}
+
+.hero__title {
+  @apply text-3xl font-extrabold;
+  @apply lg:text-4xl xl:text-5xl;
+  @apply mb-7;
+}
+
+.hero__description {
+  @apply text-lg font-semibold;
+}
+
+.hero__buttons {
+  @apply mt-16;
+}
+
+.hero__image {
+  @apply w-1/2 md:w-full;
+}

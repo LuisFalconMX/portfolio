@@ -18,24 +18,20 @@ const Button = (props) => {
 
   if (link) {
     return (
-      <div>
-        <Link to={link}>
-          <button className={`button ${currentSize} ${currentIconPosition}`} type="button">
-            {icon && <div className="button__icon">{icon}</div>}
-            {message}
-          </button>
-        </Link>
-      </div>
+      <Link to={link}>
+        <button className={`button ${currentSize} ${currentIconPosition}`} type="button">
+          {icon && <div className="button__icon">{icon}</div>}
+          {message}
+        </button>
+      </Link>
     )
   }
 
   return (
-    <div>
-      <button className={`button ${currentSize} ${currentIconPosition}`} type="button">
-        {icon && <div className="button__icon">{icon}</div>}
-        {message}
-      </button>
-    </div>
+    <button className={`button ${currentSize} ${currentIconPosition}`} type="button">
+      {icon && <div className="button__icon">{icon}</div>}
+      {message}
+    </button>
   )
 }
 
@@ -50,7 +46,7 @@ Button.propTypes = {
 Button.defaultProps = {
   link: '',
   size: '',
-  icon: '',
+  icon: [],
   iconPosition: ''
 }
 
