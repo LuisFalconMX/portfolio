@@ -4,6 +4,7 @@ import Hero from '@components/Hero'
 import Profile from '@images/luisfalconmx-profile.png'
 import Button from '@components/Button'
 import SocialBar from '@components/SocialBar'
+import Project from '@components/Project'
 
 const HeroButtons = [
   <Button key="0" message="Descargar CV" icon={<Download />} />,
@@ -56,6 +57,10 @@ const Home = () => (
       buttons={HeroButtons}
     />
     <SocialBar icons={SocialBarIcons} />
+    <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">Proyectos Destacados</h2>
+    <Project />
+    <Project />
+    <Project />
   </>
 )
 
