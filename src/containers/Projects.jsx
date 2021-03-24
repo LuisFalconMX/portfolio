@@ -1,9 +1,10 @@
 import React from 'react'
+import Jumbotron from '@components/Jumbotron'
 
 const Projects = () => (
-  <div>
-    <p>This is the project view</p>
-  </div>
+  <>
+    <Jumbotron />
+  </>
 )
 
 export default Projects
