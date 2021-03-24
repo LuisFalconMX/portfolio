@@ -25,6 +25,7 @@ const Button = (props) => {
   if (color) {
     if (color === 'light') currentColor = 'button--light'
     if (color === 'dark') currentColor = 'button--dark'
+    if (color === 'transparent') currentColor = 'button--transparent'
   }
 
   if (navigation) {

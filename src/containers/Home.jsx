@@ -6,6 +6,7 @@ import Button from '@components/Button'
 import SocialBar from '@components/SocialBar'
 import Project from '@components/Project'
 import Package from '@components/Package'
+import Theme from '@components/Theme'
 
 const HeroButtons = [
   <Button key="0" message="Descargar CV" icon={<Download />} />,
@@ -70,6 +71,8 @@ const Home = () => (
     </h2>
     <Package />
     <Package />
+    <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">Mis temas de VS Code</h2>
+    <Theme />
   </>
 )
 
