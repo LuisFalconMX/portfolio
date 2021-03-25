@@ -24,7 +24,14 @@ const Layout = ({ children }) => (
       icon={<Menu size="40" />}
       title="luisfalconmx"
       logo={Logo}
-      button={<Button message="Descargar CV" icon={<Download />} iconPosition="left" />}
+      button={
+        <Button
+          message="Descargar CV"
+          link="https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_curriculum_vitae_49de021bd3.pdf"
+          icon={<Download />}
+          iconPosition="left"
+        />
+      }
     />
     {children}
     <Footer buttons={FooterIcons} />

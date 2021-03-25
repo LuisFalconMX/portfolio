@@ -10,7 +10,12 @@ import Theme from '@components/Theme'
 import axios from 'axios'
 
 const HeroButtons = [
-  <Button key="0" message="Descargar CV" icon={<Download />} />,
+  <Button
+    key="0"
+    message="Descargar CV"
+    link="https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_curriculum_vitae_49de021bd3.pdf"
+    icon={<Download />}
+  />,
   <Button
     key="1"
     navigation="projects"
