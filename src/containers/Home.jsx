@@ -54,9 +54,10 @@ const SocialBarIcons = [
 const Home = () => {
   const [projects, setProjects] = useState([])
   const [packages, setPackages] = useState([])
+  const [themes, setThemes] = useState([])
 
-  useEffect(() => {
-    axios
+  useEffect(async () => {
+    await axios
       .get(`${process.env.API_ENDPOINT}/projects`)
       .then(({ data }) => {
         let count = 0
@@ -65,8 +66,8 @@ const Home = () => {
       .catch((error) => console.error(error))
   }, [])
 
-  useEffect(() => {
-    axios
+  useEffect(async () => {
+    await axios
       .get(`${process.env.API_ENDPOINT}/packages`)
       .then(({ data }) => {
         let count = 0
@@ -75,7 +76,15 @@ const Home = () => {
       .catch((error) => console.error(error))
   }, [])
 
-  console.log(packages)
+  useEffect(async () => {
+    await axios
+      .get(`${process.env.API_ENDPOINT}/themes`)
+      .then(({ data }) => {
+        let count = 0
+        setThemes(data.filter((item) => count++ <= 3))
+      })
+      .catch((error) => console.error(error))
+  }, [])
 
   return (
     <>
@@ -111,7 +120,11 @@ const Home = () => {
       <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">
         Mis temas de VS Code
       </h2>
-      <Theme />
+      <div className="grid gap-y-8">
+        {themes.map((item) => (
+          <Theme key={item.id} {...item} cover={item.cover.url} />
+        ))}
+      </div>
     </>
   )
 }
