@@ -52,7 +52,8 @@ const SocialBarIcons = [
 ]
 
 const Home = () => {
-  const [projects, setProjects, packages, setPackages, themes, setThemes] = useState([])
+  const [projects, setProjects] = useState([])
+  const [packages, setPackages] = useState([])
 
   useEffect(() => {
     axios
@@ -63,6 +64,18 @@ const Home = () => {
       })
       .catch((error) => console.error(error))
   }, [])
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.API_ENDPOINT}/packages`)
+      .then(({ data }) => {
+        let count = 0
+        setPackages(data.filter((item) => count++ <= 2))
+      })
+      .catch((error) => console.error(error))
+  }, [])
+
+  console.log(packages)
 
   return (
     <>
@@ -90,8 +103,11 @@ const Home = () => {
       <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">
         Paquetes y Contenedores
       </h2>
-      <Package />
-      <Package />
+      <div className="grid grid-cols-2 gap-3 py-4 items-center justify-items-center">
+        {packages.map((item) => (
+          <Package key={item.id} {...item} />
+        ))}
+      </div>
       <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">
         Mis temas de VS Code
       </h2>

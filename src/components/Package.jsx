@@ -4,18 +4,22 @@ import '@styles/components/Package.pcss'
 import Button from '@components/Button'
 import { ChevronRight } from 'react-feather'
 import NPMLogo from '@images/npm-logo.png'
+import DockerLogo from '@images/docker-logo.png'
 
 const Package = (props) => {
-  const { provider, title, description, link } = props
+  const { title, description, url, provider } = props
+  let currentProvider
+  let currentMessage
+
+  currentProvider = provider === 'npmjs' ? 'NPM' : 'Dockerhub'
+  currentMessage = `Ver en ${currentProvider}`
 
   return (
     <div className="package">
-      <img className="package__image" src={NPMLogo} alt="" />
-      <h3 className="package__title">webkit-cli</h3>
-      <p className="package__description">
-        Set a good description and readme file for this package
-      </p>
-      <Button message="Ver en NPM" icon={<ChevronRight />} iconPosition="right" />
+      <img className="package__image" src={provider === 'npmjs' ? NPMLogo : DockerLogo} alt="" />
+      <h3 className="package__title">{title}</h3>
+      <p className="package__description">{description}</p>
+      <Button message={currentMessage} link={url} icon={<ChevronRight />} iconPosition="right" />
     </div>
   )
 }
