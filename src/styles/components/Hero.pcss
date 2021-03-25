@@ -1,8 +1,7 @@
 .hero {
   width: 100%;
   min-height: 640px;
-  @apply px-4 md:px-8 lg:px-16;
-  @apply container mx-auto;
+  @apply px-4 md:px-8 lg:px-16 mx-auto mb-6 md:mb-0;
   @apply grid grid-cols-1 md:grid-cols-2 gap-x-3;
   @apply text-black dark:text-light;
   @apply items-center justify-items-center;
@@ -10,9 +9,12 @@
 
 .hero__content-left {
   max-width: 620px;
+  @apply order-last md:order-none text-center md:text-left;
 }
 
 .hero__content-right {
+  @apply h-full;
+  @apply flex flex-col justify-center items-center;
 }
 
 .hero__title {
@@ -22,13 +24,13 @@
 }
 
 .hero__description {
-  @apply text-lg font-semibold;
+  @apply text-base md:text-lg font-semibold;
 }
 
 .hero__buttons {
-  @apply mt-16;
+  @apply mt-8 md:mt-16;
 }
 
 .hero__image {
-  @apply w-1/2 md:w-full;
+  @apply w-8/12 md:w-full rounded-full md:rounded-none;
 }

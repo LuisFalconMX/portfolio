@@ -100,7 +100,7 @@ const Home = () => {
         buttons={HeroButtons}
       />
       <SocialBar icons={SocialBarIcons} />
-      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-32 pb-16">
+      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-24 md:pt-32 pb-10 md:pb-16">
         Proyectos Destacados
       </h2>
       {projects.map((item) => (
@@ -114,15 +114,15 @@ const Home = () => {
           iconPosition="right"
         />
       </div>
-      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-32 pb-16">
+      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-24 pb-10 md:pt-32 md:pb-16">
         Paquetes Destacados
       </h2>
-      <div className="grid grid-cols-2 gap-3 py-4 items-center justify-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 py-4 items-center justify-items-center">
         {packages.map((item) => (
           <Package key={item.id} {...item} />
         ))}
       </div>
-      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-32 pb-16">
+      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-24 md:pt-32 pb-10 md:pb-16">
         Temas de VS Code
       </h2>
       <div className="grid gap-y-8">

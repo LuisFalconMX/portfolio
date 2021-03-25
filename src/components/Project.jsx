@@ -78,7 +78,7 @@ const Project = (props) => {
       <div className="projectCard">
         <div>
           <img className="projectCard__image" src={cover} alt={alt} />
-          <h2 className="projectCard__title">{title}</h2>
+          <h3 className="projectCard__title">{title}</h3>
           {date && <small className="projectCard__release">{currentDate}</small>}
           <p className="projectCard__description">{description}</p>
         </div>
@@ -93,11 +93,11 @@ const Project = (props) => {
   return (
     <div className="project">
       <div className="project__content">
-        <h1 className="project__title">{title}</h1>
+        <h3 className="project__title">{title}</h3>
         {date && <small className="project__date">{currentDate}</small>}
         <p className="project__description">{description}</p>
         <div className="project__buttons">
-          {url && <Button icon={<Zap />} message="Ver proyecto en vivo" link={url} />}
+          {url && <Button icon={<Zap />} message="Ver proyecto" link={url} />}
           {repository && <Button icon={<GitHub />} message="Ir al repositorio" link={repository} />}
         </div>
       </div>

@@ -1,7 +1,7 @@
 .project {
   @apply w-full;
-  @apply p-10;
-  @apply grid grid-cols-2;
+  @apply p-6 md:p-10;
+  @apply grid grid-cols-1 md:grid-cols-2;
   @apply items-center;
   @apply text-dark dark:text-light;
 }
@@ -22,9 +22,13 @@
   @apply text-lg mb-8;
 }
 
+.project__cover {
+  @apply order-first md:order-none;
+}
+
 .project__image {
   width: 100%;
   max-width: 740px;
   max-height: 416px;
-  @apply rounded-md;
+  @apply rounded-md mb-6 md:mb-0;
 }
