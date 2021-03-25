@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Download, ChevronRight, GitHub, Linkedin, Codepen, BookOpen } from 'react-feather'
 import Hero from '@components/Hero'
-import Profile from '@images/luisfalconmx-profile.png'
+import Profile from '@images/luisfalconmx.png'
 import Button from '@components/Button'
 import SocialBar from '@components/SocialBar'
 import Project from '@components/Project'
@@ -58,7 +58,7 @@ const Home = () => {
 
   useEffect(async () => {
     await axios
-      .get(`${process.env.API_ENDPOINT}/projects`)
+      .get(`${process.env.API_ENDPOINT}/projects?_sort=date:DESC`)
       .then(({ data }) => {
         let count = 0
         setProjects(data.filter((item) => item.featured === true && count++ < 3))
@@ -109,17 +109,13 @@ const Home = () => {
           iconPosition="right"
         />
       </div>
-      <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">
-        Paquetes y Contenedores
-      </h2>
+      <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">Paquetes Destacados</h2>
       <div className="grid grid-cols-2 gap-3 py-4 items-center justify-items-center">
         {packages.map((item) => (
           <Package key={item.id} {...item} />
         ))}
       </div>
-      <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">
-        Mis temas de VS Code
-      </h2>
+      <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">Temas de VS Code</h2>
       <div className="grid gap-y-8">
         {themes.map((item) => (
           <Theme key={item.id} {...item} cover={item.cover.url} />

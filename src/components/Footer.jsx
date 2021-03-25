@@ -12,7 +12,7 @@ const Footer = (props) => {
           <img className="footer__logo" src={Logo} alt="" />
           <h4 className="footer__title">luisfalconmx</h4>
         </div>
-        <small className="footer__leyend">2021 - luisfalconmx</small>
+        <small className="footer__leyend">Marzo 2021 - luisfalconmx</small>
       </div>
       <div>
         <p className="footer__description">

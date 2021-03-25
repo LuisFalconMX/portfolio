@@ -8,7 +8,7 @@ const Projects = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.API_ENDPOINT}/projects`)
+      .get(`${process.env.API_ENDPOINT}/projects?_sort=date:DESC`)
       .then(({ data }) => {
         let count = 0
         setProjects(data.filter(() => count++ < 12))
