@@ -95,7 +95,7 @@ const Home = () => {
         buttons={HeroButtons}
       />
       <SocialBar icons={SocialBarIcons} />
-      <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">
+      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-32 pb-16">
         Proyectos Destacados
       </h2>
       {projects.map((item) => (
@@ -109,13 +109,17 @@ const Home = () => {
           iconPosition="right"
         />
       </div>
-      <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">Paquetes Destacados</h2>
+      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-32 pb-16">
+        Paquetes Destacados
+      </h2>
       <div className="grid grid-cols-2 gap-3 py-4 items-center justify-items-center">
         {packages.map((item) => (
           <Package key={item.id} {...item} />
         ))}
       </div>
-      <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">Temas de VS Code</h2>
+      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-32 pb-16">
+        Temas de VS Code
+      </h2>
       <div className="grid gap-y-8">
         {themes.map((item) => (
           <Theme key={item.id} {...item} cover={item.cover.url} />
