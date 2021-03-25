@@ -76,10 +76,12 @@ const Project = (props) => {
   if (variant === 'card') {
     return (
       <div className="projectCard">
-        <img src={cover} alt={alt} />
-        <h2 className="projectCard__title">{title}</h2>
-        {date && <small className="projectCard__release">{currentDate}</small>}
-        <p className="projectCard__description">{description}</p>
+        <div>
+          <img className="projectCard__image" src={cover} alt={alt} />
+          <h2 className="projectCard__title">{title}</h2>
+          {date && <small className="projectCard__release">{currentDate}</small>}
+          <p className="projectCard__description">{description}</p>
+        </div>
         <div className="projectCard__buttons">
           {url && <Button link={url} message="Ver proyecto" icon={<Zap />} />}
           {repository && <Button link={repository} message="Repositorio" icon={<GitHub />} />}
