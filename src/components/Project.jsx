@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import '@styles/components/Project.pcss'
+import '@styles/components/ProjectCard.pcss'
 import Button from '@components/Button'
 import { Zap, GitHub } from 'react-feather'
-import ProjectCover from '@images/google-clon-cover.png'
 
 const Project = (props) => {
-  const { title, description, date, url, repository, cover, alt } = props
+  const { title, description, date, url, repository, cover, alt, variant } = props
   let currentDate = ''
 
   if (date) {
@@ -30,11 +30,62 @@ const Project = (props) => {
         monthParse = 'Marzo'
         break
 
+      case '04':
+        monthParse = 'Abril'
+        break
+
+      case '05':
+        monthParse = 'Mayo'
+        break
+
+      case '06':
+        monthParse = 'Junio'
+        break
+
+      case '07':
+        monthParse = 'Julio'
+        break
+
+      case '08':
+        monthParse = 'Agosto'
+        break
+
+      case '09':
+        monthParse = 'Septiembre'
+        break
+
+      case '10':
+        monthParse = 'Octubre'
+        break
+
+      case '11':
+        monthParse = 'Noviembre'
+        break
+
+      case '12':
+        monthParse = 'Diciembre'
+        break
+
       default:
         break
     }
 
     currentDate = `${day} de ${monthParse} del ${year}`
+  }
+
+  if (variant === 'card') {
+    return (
+      <div className="projectCard">
+        <img src={cover} alt={alt} />
+        <h2 className="projectCard__title">{title}</h2>
+        {date && <small className="projectCard__release">{currentDate}</small>}
+        <p className="projectCard__description">{description}</p>
+        <div className="projectCard__buttons">
+          {url && <Button link={url} message="Ver proyecto" icon={<Zap />} />}
+          {repository && <Button link={repository} message="Repositorio" icon={<GitHub />} />}
+        </div>
+      </div>
+    )
   }
 
   return (
