@@ -6,22 +6,50 @@ import { Zap, GitHub } from 'react-feather'
 import ProjectCover from '@images/google-clon-cover.png'
 
 const Project = (props) => {
-  const { title, date, description, liveLink, repository, image } = props
+  const { title, description, date, url, repository, cover, alt } = props
+  let currentDate = ''
+
+  if (date) {
+    let dates = date.split('-')
+    let year = dates[0]
+    let month = dates[1]
+    let day = dates[2]
+
+    let monthParse
+
+    switch (month) {
+      case '01':
+        monthParse = 'Enero'
+        break
+
+      case '02':
+        monthParse = 'Febrero'
+        break
+
+      case '03':
+        monthParse = 'Marzo'
+        break
+
+      default:
+        break
+    }
+
+    currentDate = `${day} de ${monthParse} del ${year}`
+  }
+
   return (
     <div className="project">
       <div className="project__content">
-        <h1 className="project__title">Webkit CLI</h1>
-        <small className="project__date">23 March 2021</small>
-        <p className="project__description">
-          Project description get from api request or written directly in the code.
-        </p>
+        <h1 className="project__title">{title}</h1>
+        {date && <small className="project__date">{currentDate}</small>}
+        <p className="project__description">{description}</p>
         <div className="project__buttons">
-          <Button icon={<Zap />} message="Ver proyecto en vivo" />
-          <Button icon={<GitHub />} message="Ir al repositorio" />
+          {url && <Button icon={<Zap />} message="Ver proyecto en vivo" link={url} />}
+          {repository && <Button icon={<GitHub />} message="Ir al repositorio" link={repository} />}
         </div>
       </div>
       <div className="project__cover">
-        <img className="project__image" src={ProjectCover} alt="" />
+        <img className="project__image" src={cover} alt={alt} />
       </div>
     </div>
   )

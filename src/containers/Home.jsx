@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Download, ChevronRight, GitHub, Linkedin, Codepen, BookOpen } from 'react-feather'
 import Hero from '@components/Hero'
 import Profile from '@images/luisfalconmx-profile.png'
@@ -7,6 +7,7 @@ import SocialBar from '@components/SocialBar'
 import Project from '@components/Project'
 import Package from '@components/Package'
 import Theme from '@components/Theme'
+import axios from 'axios'
 
 const HeroButtons = [
   <Button key="0" message="Descargar CV" icon={<Download />} />,
@@ -50,30 +51,53 @@ const SocialBarIcons = [
   />
 ]
 
-const Home = () => (
-  <>
-    <Hero
-      title="Hola soy luisfalconmx, Frontend Developer"
-      description="Me especializo en JavaScript implementando tecnologías como Webpack, React, ESLint, Babel, ECMAScript 6, entre otras para construir aplicaciones web modernas."
-      image={Profile}
-      buttons={HeroButtons}
-    />
-    <SocialBar icons={SocialBarIcons} />
-    <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">Proyectos Destacados</h2>
-    <Project />
-    <Project />
-    <Project />
-    <div className="text-center mt-16">
-      <Button message="Ver todos los proyectos" icon={<ChevronRight />} iconPosition="right" />
-    </div>
-    <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">
-      Paquetes y Contenedores
-    </h2>
-    <Package />
-    <Package />
-    <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">Mis temas de VS Code</h2>
-    <Theme />
-  </>
-)
+const Home = () => {
+  const [projects, setProjects, packages, setPackages, themes, setThemes] = useState([])
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.API_ENDPOINT}/projects`)
+      .then(({ data }) => {
+        let count = 0
+        setProjects(data.filter((item) => item.featured === true && count++ < 3))
+      })
+      .catch((error) => console.error(error))
+  }, [])
+
+  return (
+    <>
+      <Hero
+        title="Hola soy luisfalconmx, Frontend Developer"
+        description="Me especializo en JavaScript implementando tecnologías como Webpack, React, ESLint, Babel, ECMAScript 6, entre otras para construir aplicaciones web modernas."
+        image={Profile}
+        buttons={HeroButtons}
+      />
+      <SocialBar icons={SocialBarIcons} />
+      <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">
+        Proyectos Destacados
+      </h2>
+      {projects.map((item) => (
+        <Project key={item.id} {...item} cover={item.cover.url} alt={item.cover.alternativeText} />
+      ))}
+      <div className="text-center mt-16">
+        <Button
+          message="Ver todos los proyectos"
+          navigation="projects"
+          icon={<ChevronRight />}
+          iconPosition="right"
+        />
+      </div>
+      <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">
+        Paquetes y Contenedores
+      </h2>
+      <Package />
+      <Package />
+      <h2 className="text-5xl font-bold text-light text-center pt-32 pb-16">
+        Mis temas de VS Code
+      </h2>
+      <Theme />
+    </>
+  )
+}
 
 export default Home

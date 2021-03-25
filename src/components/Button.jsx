@@ -44,7 +44,7 @@ const Button = (props) => {
 
   if (link) {
     return (
-      <a href={link}>
+      <a href={link} target="_blank">
         <button
           className={`button ${currentColor} ${currentSize} ${currentIconPosition} ${currentVariant}`}
           type="button"
