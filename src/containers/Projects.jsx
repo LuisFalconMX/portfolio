@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Jumbotron from '@components/Jumbotron'
+import ProjectGrid from '@components/ProjectGrid'
 import Project from '@components/Project'
 import axios from 'axios'
 
@@ -19,7 +20,7 @@ const Projects = () => {
   return (
     <>
       <Jumbotron />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-16 md:gap-y-6 mt-16 px-4">
+      <ProjectGrid>
         {projects.map((item) => (
           <Project
             key={item.id}
@@ -29,7 +30,7 @@ const Projects = () => {
             variant="card"
           />
         ))}
-      </div>
+      </ProjectGrid>
     </>
   )
 }
