@@ -6,8 +6,9 @@
   "scripts": {
     "start": "webpack serve --mode development",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production",
+    "build": "node ./scripts/create-env.js && webpack --mode production",
     "lint": "eslint {src/**/*.js,src/**/*.jsx}",
+    "lint:fix": "eslint {src/**/*.js,src/**/*.jsx} --fix",
     "pretty": "prettier --write .",
     "preanalize": "webpack --mode development",
     "analize": "webpack-bundle-analyzer dist/report.json"
@@ -59,7 +60,11 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-feather": "^2.0.9",
+    "react-router-dom": "^5.2.0"
   }
 }

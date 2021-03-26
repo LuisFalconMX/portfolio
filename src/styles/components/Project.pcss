@@ -1,0 +1,34 @@
+.project {
+  @apply w-full;
+  @apply px-3 py-6 md:p-10;
+  @apply grid grid-cols-1 md:grid-cols-2;
+  @apply items-center;
+  @apply text-dark dark:text-light;
+}
+
+.project__content {
+  max-width: 500px;
+}
+
+.project__title {
+  @apply text-4xl md:text-5xl font-semibold mb-4;
+}
+
+.project__date {
+  @apply block text-base mb-4;
+}
+
+.project__description {
+  @apply text-lg mb-8;
+}
+
+.project__cover {
+  @apply order-first md:order-none;
+}
+
+.project__image {
+  width: 100%;
+  max-width: 740px;
+  max-height: 416px;
+  @apply rounded-md mb-6 md:mb-0;
+}

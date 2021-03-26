@@ -1,0 +1,31 @@
+.footer {
+  width: 100%;
+  @apply p-8 mt-16;
+  @apply bg-light dark:bg-dark text-dark dark:text-light;
+  @apply grid grid-cols-1 md:grid-cols-2;
+}
+
+.footer__sitemark {
+  @apply flex items-center mb-6 md:mb-0;
+}
+
+.footer__logo {
+  @apply mr-4;
+}
+
+.footer__title {
+  @apply text-2xl font-bold;
+}
+
+.footer__leyend {
+  @apply hidden md:block mt-16;
+  @apply text-sm font-bold;
+}
+
+.footer__description {
+  @apply text-base md:text-lg font-semibold text-left md:text-right;
+}
+
+.footer__links {
+  @apply flex justify-start md:justify-end mt-8;
+}
