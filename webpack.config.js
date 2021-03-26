@@ -34,7 +34,6 @@ module.exports = (env, argv) => {
   config.devServer = isProduction
     ? {}
     : {
-        host: '192.168.0.13',
         port: 2303,
         contentBase: path.join(__dirname, 'dist'),
         compress: true,

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --mode development",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production",
+    "build": "node ./scripts/create-env.js && webpack --mode production",
     "lint": "eslint {src/**/*.js,src/**/*.jsx}",
     "lint:fix": "eslint {src/**/*.js,src/**/*.jsx} --fix",
     "pretty": "prettier --write .",
