@@ -7,6 +7,9 @@ import SocialBar from '@components/SocialBar'
 import Project from '@components/Project'
 import Package from '@components/Package'
 import Theme from '@components/Theme'
+import Title from '@components/Title'
+import Packages from '@components/Packages'
+import Themes from '@components/Themes'
 import axios from 'axios'
 
 const HeroButtons = [
@@ -100,36 +103,30 @@ const Home = () => {
         buttons={HeroButtons}
       />
       <SocialBar icons={SocialBarIcons} />
-      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-24 md:pt-32 pb-10 md:pb-16">
-        Proyectos Destacados
-      </h2>
+      <Title text="Proyectos Destacados" />
       {projects.map((item) => (
         <Project key={item.id} {...item} cover={item.cover.url} alt={item.cover.alternativeText} />
       ))}
-      <div className="text-center mt-16">
-        <Button
-          message="Ver todos los proyectos"
-          navigation="projects"
-          icon={<ChevronRight />}
-          iconPosition="right"
-        />
-      </div>
-      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-24 pb-10 md:pt-32 md:pb-16">
-        Paquetes Destacados
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 py-4 items-center justify-items-center">
+      <Button
+        align="center"
+        spacing="big"
+        message="Ver todos los proyectos"
+        navigation="projects"
+        icon={<ChevronRight />}
+        iconPosition="right"
+      />
+      <Title text="Paquetes Destacados" />
+      <Packages>
         {packages.map((item) => (
           <Package key={item.id} {...item} />
         ))}
-      </div>
-      <h2 className="text-5xl font-bold text-dark dark:text-light text-center pt-24 md:pt-32 pb-10 md:pb-16">
-        Temas de VS Code
-      </h2>
-      <div className="grid gap-y-8">
+      </Packages>
+      <Title text="Temas de VS Code" />
+      <Themes>
         {themes.map((item) => (
           <Theme key={item.id} {...item} cover={item.cover.url} />
         ))}
-      </div>
+      </Themes>
     </>
   )
 }

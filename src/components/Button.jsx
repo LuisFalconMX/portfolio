@@ -4,11 +4,24 @@ import '@styles/components/Button.pcss'
 import { Link } from 'react-router-dom'
 
 const Button = (props) => {
-  const { message, navigation, link, size, icon, iconPosition, variant, color } = props
+  const {
+    message,
+    navigation,
+    link,
+    size,
+    icon,
+    iconPosition,
+    variant,
+    color,
+    align,
+    spacing
+  } = props
   let currentSize = ''
   let currentIconPosition = ''
   let currentVariant = ''
   let currentColor = ''
+  let currentAlign = ''
+  let currentSpacing = ''
 
   if (size) {
     currentSize = size === 'big' ? 'button--big' : ''
@@ -28,11 +41,21 @@ const Button = (props) => {
     if (color === 'transparent') currentColor = 'button--transparent'
   }
 
+  if (align) {
+    if (align === 'left') currentAlign = 'button--left'
+    if (align === 'center') currentAlign = 'button--center'
+    if (align === 'right') currentAlign = 'button--right'
+  }
+
+  if (spacing) {
+    if (spacing === 'big') currentSpacing = 'button--spacing-big'
+  }
+
   if (navigation) {
     return (
       <Link to={navigation}>
         <button
-          className={`button ${currentColor} ${currentVariant} ${currentSize} ${currentIconPosition}`}
+          className={`button ${currentColor} ${currentVariant} ${currentSize} ${currentIconPosition} ${currentAlign} ${currentSpacing}`}
           type="button"
         >
           {icon && <div className="button__icon">{icon}</div>}
@@ -46,7 +69,7 @@ const Button = (props) => {
     return (
       <a href={link} target="_blank">
         <button
-          className={`button ${currentColor} ${currentSize} ${currentIconPosition} ${currentVariant}`}
+          className={`button ${currentColor} ${currentSize} ${currentIconPosition} ${currentVariant} ${currentAlign}`}
           type="button"
         >
           {icon && <div className="button__icon">{icon}</div>}
@@ -58,7 +81,7 @@ const Button = (props) => {
 
   return (
     <button
-      className={`button ${currentColor} ${currentSize} ${currentIconPosition} ${currentVariant}`}
+      className={`button ${currentColor} ${currentSize} ${currentIconPosition} ${currentVariant} ${currentAlign}`}
       type="button"
     >
       {icon && <div className="button__icon">{icon}</div>}
