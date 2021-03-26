@@ -4,6 +4,7 @@
   @apply px-3 py-4 md:px-8;
   @apply grid grid-cols-2 items-center;
   @apply bg-light dark:bg-dark text-dark dark:text-light;
+  @apply z-50 shadow;
 }
 
 .navbar__icon {
@@ -23,20 +24,30 @@
 }
 
 .navbar__menu {
-  @apply flex justify-end;
+  height: calc(100vh - 70px);
+  @apply w-full md:w-full md:h-full;
+  @apply p-8 md:p-0;
+  @apply absolute md:static flex justify-end;
+  @apply text-dark bg-light md:bg-transparent dark:bg-dark dark:text-light;
+  @apply top-full -left-full z-40;
+  @apply flex flex-col justify-start md:justify-end md:flex-row;
+  @apply transition-all;
+}
+
+.navbar__menu--open {
+  @apply left-0;
 }
 
 .navbar__links {
-  @apply flex items-center;
-  @apply hidden md:flex;
+  @apply md:flex md:items-center;
 }
 
 .navbar__links li {
-  @apply mr-4;
+  @apply mb-3 md:mb-0 md:mr-4;
 }
 
 .navbar__links li a {
-  @apply text-lg font-semibold;
+  @apply text-3xl md:text-lg font-semibold;
 }
 
 .navbar__button {

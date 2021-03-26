@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Menu, Download, GitHub, Linkedin, Codepen, BookOpen } from 'react-feather'
 import Logo from '@images/logo.png'
 import Navbar from '../components/Navbar'
@@ -18,24 +18,29 @@ const FooterIcons = [
 ]
 
 // eslint-disable-next-line react/prop-types
-const Layout = ({ children }) => (
-  <>
-    <Navbar
-      icon={<Menu size="40" />}
-      title="luisfalconmx"
-      logo={Logo}
-      button={
-        <Button
-          message="Descargar CV"
-          link="https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_curriculum_vitae_49de021bd3.pdf"
-          icon={<Download />}
-          iconPosition="left"
-        />
-      }
-    />
-    {children}
-    <Footer buttons={FooterIcons} />
-  </>
-)
+const Layout = ({ children }) => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <>
+      <Navbar
+        open={open}
+        setOpen={setOpen}
+        title="luisfalconmx"
+        logo={Logo}
+        button={
+          <Button
+            message="Descargar CV"
+            link="https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_curriculum_vitae_49de021bd3.pdf"
+            icon={<Download />}
+            iconPosition="left"
+          />
+        }
+      />
+      {children}
+      <Footer buttons={FooterIcons} />
+    </>
+  )
+}
 
 export default Layout

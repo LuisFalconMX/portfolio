@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import '@styles/components/Navbar.pcss'
+import { Menu, X } from 'react-feather'
 
 const Navbar = (props) => {
-  const { icon, logo, logoAlt, title, button } = props
+  const { logo, logoAlt, title, button, open, setOpen } = props
 
   return (
     <header className="navbar">
@@ -12,14 +13,20 @@ const Navbar = (props) => {
         {logo && <img className="navbar__logo" src={logo} alt={logoAlt} width="70" />}
         {title && <div className="navbar__title">{title}</div>}
       </div>
-      {icon && <div className="navbar__icon">{icon}</div>}
-      <nav className="navbar__menu">
+      <div className="navbar__icon" open={open} onClick={() => setOpen(!open)}>
+        {open === true ? <X size="40" /> : <Menu size="40" />}
+      </div>
+      <nav className={open === true ? 'navbar__menu navbar__menu--open' : 'navbar__menu'}>
         <ul className="navbar__links">
           <li>
-            <Link to="/">Inicio</Link>
+            <Link to="/" onClick={() => setOpen(false)}>
+              Inicio
+            </Link>
           </li>
           <li>
-            <Link to="/projects">Proyectos</Link>
+            <Link to="/projects" onClick={() => setOpen(false)}>
+              Proyectos
+            </Link>
           </li>
         </ul>
         {button && <div className="navbar__button">{button}</div>}
@@ -29,7 +36,6 @@ const Navbar = (props) => {
 }
 
 Navbar.propTypes = {
-  icon: PropTypes.shape({ root: PropTypes.string }).isRequired,
   logo: PropTypes.shape({ root: PropTypes.string }),
   logoAlt: PropTypes.string,
   title: PropTypes.string.isRequired,
