@@ -1,6 +1,6 @@
 import React from 'react'
 import '@styles/components/Footer.pcss'
-import Logo from '@images/logo.png'
+import Logo from '@images/luisfalconmx-logo-circle.png'
 
 const Footer = (props) => {
   const { buttons } = props

@@ -28,6 +28,11 @@ const Navbar = (props) => {
               Proyectos
             </Link>
           </li>
+          <li>
+            <a href="https://blog.luisfalconmx.com/" target="_blank">
+              Blog
+            </a>
+          </li>
         </ul>
         {button && <div className="navbar__button">{button}</div>}
       </nav>
