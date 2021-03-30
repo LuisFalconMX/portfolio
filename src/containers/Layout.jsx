@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Menu, Download, GitHub, Linkedin, Codepen, BookOpen } from 'react-feather'
-import Logo from '@images/logo.png'
+import Logo from '@images/luisfalconmx-logo-circle.png'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Button from '../components/Button'
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
         button={
           <Button
             message="Descargar CV"
-            link="https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_curriculum_vitae_49de021bd3.pdf"
+            link="https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_cv_c13f9663a4.pdf"
             icon={<Download />}
             iconPosition="left"
           />

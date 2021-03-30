@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Download, ChevronRight, GitHub, Linkedin, Codepen, BookOpen } from 'react-feather'
 import Hero from '@components/Hero'
-import Profile from '@images/luisfalconmx.png'
+import Profile from '@images/luisfalconmx-profile-circle.png'
 import Button from '@components/Button'
 import SocialBar from '@components/SocialBar'
 import Project from '@components/Project'
@@ -12,13 +12,10 @@ import Packages from '@components/Packages'
 import Themes from '@components/Themes'
 import axios from 'axios'
 
+const CV = 'https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_cv_c13f9663a4.pdf'
+
 const HeroButtons = [
-  <Button
-    key="0"
-    message="Descargar CV"
-    link="https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_curriculum_vitae_49de021bd3.pdf"
-    icon={<Download />}
-  />,
+  <Button key="0" message="Descargar CV" link={CV} icon={<Download />} />,
   <Button
     key="1"
     navigation="projects"
