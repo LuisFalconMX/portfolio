@@ -61,8 +61,8 @@ const Home = () => {
   const [packages, setPackages] = useState([])
   const [themes, setThemes] = useState([])
 
-  useEffect(async () => {
-    await axios
+  useEffect(() => {
+    axios
       .get(`${process.env.API_ENDPOINT}/projects?_sort=date:DESC`)
       .then(({ data }) => {
         let count = 0
@@ -71,8 +71,8 @@ const Home = () => {
       .catch((error) => console.error(error))
   }, [])
 
-  useEffect(async () => {
-    await axios
+  useEffect(() => {
+    axios
       .get(`${process.env.API_ENDPOINT}/packages`)
       .then(({ data }) => {
         let count = 0
@@ -81,8 +81,8 @@ const Home = () => {
       .catch((error) => console.error(error))
   }, [])
 
-  useEffect(async () => {
-    await axios
+  useEffect(() => {
+    axios
       .get(`${process.env.API_ENDPOINT}/themes`)
       .then(({ data }) => {
         let count = 0
