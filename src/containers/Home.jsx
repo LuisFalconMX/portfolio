@@ -58,8 +58,8 @@ const SocialBarIcons = [
 
 const Home = () => {
   const [projects, setProjects] = useState([])
-  const [packages, setPackages] = useState([])
-  const [themes, setThemes] = useState([])
+  // const [packages, setPackages] = useState([])
+  // const [themes, setThemes] = useState([])
 
   useEffect(() => {
     axios
@@ -71,25 +71,25 @@ const Home = () => {
       .catch((error) => console.error(error))
   }, [])
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.API_ENDPOINT}/packages`)
-      .then(({ data }) => {
-        let count = 0
-        setPackages(data.filter((item) => count++ <= 2))
-      })
-      .catch((error) => console.error(error))
-  }, [])
+  // useEffect(() => {
+  //   axios
+  //     .get(`${process.env.API_ENDPOINT}/packages`)
+  //     .then(({ data }) => {
+  //       let count = 0
+  //       setPackages(data.filter((item) => count++ <= 2))
+  //     })
+  //     .catch((error) => console.error(error))
+  // }, [])
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.API_ENDPOINT}/themes`)
-      .then(({ data }) => {
-        let count = 0
-        setThemes(data.filter((item) => count++ <= 3))
-      })
-      .catch((error) => console.error(error))
-  }, [])
+  // useEffect(() => {
+  //   axios
+  //     .get(`${process.env.API_ENDPOINT}/themes`)
+  //     .then(({ data }) => {
+  //       let count = 0
+  //       setThemes(data.filter((item) => count++ <= 3))
+  //     })
+  //     .catch((error) => console.error(error))
+  // }, [])
 
   return (
     <>
@@ -114,15 +114,26 @@ const Home = () => {
       />
       <Title text="Paquetes Destacados" />
       <Packages>
-        {packages.map((item) => (
-          <Package key={item.id} {...item} />
-        ))}
+        <Package
+          title="webkit-cli"
+          description="CLI tool for initialize react projects with different frameworks"
+          url="https://www.npmjs.com/package/webkit-cli"
+          provider="npm"
+        />
+        <Package
+          title="luisfalconmx/strapi"
+          description="A strapi project with support for Mongo DB Atlas, Docker, Docker Compose and AWS S3 Bucket."
+          url="https://hub.docker.com/r/luisfalconmx/strapi"
+          provider="docker"
+        />
       </Packages>
       <Title text="Temas de VS Code" />
       <Themes>
-        {themes.map((item) => (
-          <Theme key={item.id} {...item} cover={item.cover.url} />
-        ))}
+        <Theme
+          title="Origin Theme"
+          cover="https://luisfalconmx-strapi.s3.amazonaws.com/origin_theme_cover_0da9958518.png"
+          url="https://marketplace.visualstudio.com/items?itemName=luisfalconmx.origin-theme"
+        />
       </Themes>
     </>
   )

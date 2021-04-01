@@ -11,12 +11,12 @@ const Package = (props) => {
   let currentProvider
   let currentMessage
 
-  currentProvider = provider === 'npmjs' ? 'NPM' : 'Dockerhub'
+  currentProvider = provider === 'npm' ? 'NPM' : 'Dockerhub'
   currentMessage = `Ver en ${currentProvider}`
 
   return (
     <div className="package">
-      <img className="package__image" src={provider === 'npmjs' ? NPMLogo : DockerLogo} alt="" />
+      <img className="package__image" src={provider === 'npm' ? NPMLogo : DockerLogo} alt="" />
       <h3 className="package__title">{title}</h3>
       <p className="package__description">{description}</p>
       <Button message={currentMessage} link={url} icon={<ChevronRight />} iconPosition="right" />
