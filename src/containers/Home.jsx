@@ -12,6 +12,7 @@ import Packages from '@components/Packages'
 import Themes from '@components/Themes'
 import axios from 'axios'
 
+const API = process.env.API_ENDPOINT
 const CV = 'https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_cv_c13f9663a4.pdf'
 
 const HeroButtons = [
@@ -58,12 +59,12 @@ const SocialBarIcons = [
 
 const Home = () => {
   const [projects, setProjects] = useState([])
-  // const [packages, setPackages] = useState([])
-  // const [themes, setThemes] = useState([])
+  const [packages, setPackages] = useState([])
+  const [themes, setThemes] = useState([])
 
   useEffect(() => {
     axios
-      .get(`${process.env.API_ENDPOINT}/projects?_sort=date:DESC`)
+      .get(`${API}/projects?_sort=date:DESC`)
       .then(({ data }) => {
         let count = 0
         setProjects(data.filter((item) => item.featured === true && count++ < 3))
@@ -71,25 +72,25 @@ const Home = () => {
       .catch((error) => console.error(error))
   }, [])
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${process.env.API_ENDPOINT}/packages`)
-  //     .then(({ data }) => {
-  //       let count = 0
-  //       setPackages(data.filter((item) => count++ <= 2))
-  //     })
-  //     .catch((error) => console.error(error))
-  // }, [])
+  useEffect(() => {
+    axios
+      .get(`${process.env.API_ENDPOINT}/packages`)
+      .then(({ data }) => {
+        let count = 0
+        setPackages(data.filter((item) => count++ <= 2))
+      })
+      .catch((error) => console.error(error))
+  }, [])
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${process.env.API_ENDPOINT}/themes`)
-  //     .then(({ data }) => {
-  //       let count = 0
-  //       setThemes(data.filter((item) => count++ <= 3))
-  //     })
-  //     .catch((error) => console.error(error))
-  // }, [])
+  useEffect(() => {
+    axios
+      .get(`${process.env.API_ENDPOINT}/themes`)
+      .then(({ data }) => {
+        let count = 0
+        setThemes(data.filter((item) => count++ <= 3))
+      })
+      .catch((error) => console.error(error))
+  }, [])
 
   return (
     <>
@@ -114,26 +115,15 @@ const Home = () => {
       />
       <Title text="Paquetes Destacados" />
       <Packages>
-        <Package
-          title="webkit-cli"
-          description="CLI tool for initialize react projects with different frameworks"
-          url="https://www.npmjs.com/package/webkit-cli"
-          provider="npm"
-        />
-        <Package
-          title="luisfalconmx/strapi"
-          description="A strapi project with support for Mongo DB Atlas, Docker, Docker Compose and AWS S3 Bucket."
-          url="https://hub.docker.com/r/luisfalconmx/strapi"
-          provider="docker"
-        />
+        {packages.map((item) => (
+          <Package key={item.id} {...item} />
+        ))}
       </Packages>
       <Title text="Temas de VS Code" />
       <Themes>
-        <Theme
-          title="Origin Theme"
-          cover="https://luisfalconmx-strapi.s3.amazonaws.com/origin_theme_cover_0da9958518.png"
-          url="https://marketplace.visualstudio.com/items?itemName=luisfalconmx.origin-theme"
-        />
+        {themes.map((item) => (
+          <Theme key={item.id} {...item} cover={item.cover.url} />
+        ))}
       </Themes>
     </>
   )
