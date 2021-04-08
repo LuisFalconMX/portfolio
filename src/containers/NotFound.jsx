@@ -7,7 +7,9 @@ const NotFound = () => (
   <>
     <div className="NotFound">
       <h1 className="NotFound__title">404</h1>
-      <h2 className="NotFound__subtitle">No se ha encontrado la pagina que solicitaste</h2>
+      <h2 className="NotFound__subtitle">
+        No se ha encontrado la pagina que solicitaste
+      </h2>
       <Button message="Regresar al sitio" navigation="/" icon={<Home />} />
     </div>
   </>

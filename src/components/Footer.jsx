@@ -16,8 +16,9 @@ const Footer = (props) => {
       </div>
       <div>
         <p className="footer__description">
-          Soy Frontend Developer especializado en JavaScript. Implemento tecnologías como Webpack,
-          React, ESLint, Babel, ECMAScript 6, entre otras para construir aplicaciones web modernas.
+          Soy Frontend Developer especializado en JavaScript. Implemento
+          tecnologías como Webpack, React, ESLint, Babel, ECMAScript 6, entre
+          otras para construir aplicaciones web modernas.
         </p>
         <div className="footer__links">{buttons}</div>
       </div>

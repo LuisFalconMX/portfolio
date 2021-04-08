@@ -1,8 +1,7 @@
 import React from 'react'
 import '@styles/components/Jumbotron.pcss'
 
-const Jumbotron = (props) => {
-  const {} = props
+const Jumbotron = () => {
   return (
     <div className="jumbotron">
       <h3 className="jumbotron__subtitle">Proyectos</h3>

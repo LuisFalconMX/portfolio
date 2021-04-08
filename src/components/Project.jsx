@@ -1,19 +1,27 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import '@styles/components/Project.pcss'
 import '@styles/components/ProjectCard.pcss'
 import Button from '@components/Button'
 import { Zap, GitHub } from 'react-feather'
 
 const Project = (props) => {
-  const { title, description, date, url, repository, cover, alt, variant } = props
+  const {
+    title,
+    description,
+    date,
+    url,
+    repository,
+    cover,
+    alt,
+    variant
+  } = props
   let currentDate = ''
 
   if (date) {
-    let dates = date.split('-')
-    let year = dates[0]
-    let month = dates[1]
-    let day = dates[2]
+    const dates = date.split('-')
+    const year = dates[0]
+    const month = dates[1]
+    const day = dates[2]
 
     let monthParse
 
@@ -79,12 +87,16 @@ const Project = (props) => {
         <div>
           <img className="projectCard__image" src={cover} alt={alt} />
           <h3 className="projectCard__title">{title}</h3>
-          {date && <small className="projectCard__release">{currentDate}</small>}
+          {date && (
+            <small className="projectCard__release">{currentDate}</small>
+          )}
           <p className="projectCard__description">{description}</p>
         </div>
         <div className="projectCard__buttons">
           {url && <Button link={url} message="Ver proyecto" icon={<Zap />} />}
-          {repository && <Button link={repository} message="Repositorio" icon={<GitHub />} />}
+          {repository && (
+            <Button link={repository} message="Repositorio" icon={<GitHub />} />
+          )}
         </div>
       </div>
     )
@@ -98,7 +110,13 @@ const Project = (props) => {
         <p className="project__description">{description}</p>
         <div className="project__buttons">
           {url && <Button icon={<Zap />} message="Ver proyecto" link={url} />}
-          {repository && <Button icon={<GitHub />} message="Ir al repositorio" link={repository} />}
+          {repository && (
+            <Button
+              icon={<GitHub />}
+              message="Ir al repositorio"
+              link={repository}
+            />
+          )}
         </div>
       </div>
       <div className="project__cover">

@@ -28,7 +28,8 @@ const Button = (props) => {
   }
 
   if (icon) {
-    currentIconPosition = iconPosition === 'right' ? 'button__icon--right' : 'button__icon--left'
+    currentIconPosition =
+      iconPosition === 'right' ? 'button__icon--right' : 'button__icon--left'
   }
 
   if (variant) {
@@ -67,7 +68,7 @@ const Button = (props) => {
 
   if (link) {
     return (
-      <a href={link} target="_blank">
+      <a href={link} target="_blank" rel="noreferrer">
         <button
           className={`button ${currentColor} ${currentSize} ${currentIconPosition} ${currentVariant} ${currentAlign}`}
           type="button"

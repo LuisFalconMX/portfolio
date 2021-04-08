@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Download, ChevronRight, GitHub, Linkedin, Codepen, BookOpen } from 'react-feather'
+import {
+  Download,
+  ChevronRight,
+  GitHub,
+  Linkedin,
+  Codepen,
+  BookOpen
+} from 'react-feather'
 import Hero from '@components/Hero'
 import Profile from '@images/luisfalconmx-profile-circle.png'
 import Button from '@components/Button'
@@ -13,7 +20,8 @@ import Themes from '@components/Themes'
 import axios from 'axios'
 
 const API = process.env.API_ENDPOINT
-const CV = 'https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_cv_c13f9663a4.pdf'
+const CV =
+  'https://luisfalconmx-strapi.s3.amazonaws.com/luisfalconmx_cv_c13f9663a4.pdf'
 
 const HeroButtons = [
   <Button key="0" message="Descargar CV" link={CV} icon={<Download />} />,
@@ -67,7 +75,9 @@ const Home = () => {
       .get(`${API}/projects?_sort=date:DESC`)
       .then(({ data }) => {
         let count = 0
-        setProjects(data.filter((item) => item.featured === true && count++ < 3))
+        setProjects(
+          data.filter((item) => item.featured === true && count++ < 3)
+        )
       })
       .catch((error) => console.error(error))
   }, [])
@@ -103,7 +113,12 @@ const Home = () => {
       <SocialBar icons={SocialBarIcons} />
       <Title text="Proyectos Destacados" />
       {projects.map((item) => (
-        <Project key={item.id} {...item} cover={item.cover.url} alt={item.cover.alternativeText} />
+        <Project
+          key={item.id}
+          {...item}
+          cover={item.cover.url}
+          alt={item.cover.alternativeText}
+        />
       ))}
       <Button
         align="center"

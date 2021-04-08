@@ -9,14 +9,24 @@ const Navbar = (props) => {
 
   return (
     <header className="navbar">
-      <div className={logo ? 'navbar__sitemark navbar__sitemark--logo' : 'navbar__sitemark'}>
-        {logo && <img className="navbar__logo" src={logo} alt={logoAlt} width="70" />}
+      <div
+        className={
+          logo ? 'navbar__sitemark navbar__sitemark--logo' : 'navbar__sitemark'
+        }
+      >
+        {logo && (
+          <img className="navbar__logo" src={logo} alt={logoAlt} width="70" />
+        )}
         {title && <div className="navbar__title">{title}</div>}
       </div>
       <div className="navbar__icon" open={open} onClick={() => setOpen(!open)}>
         {open === true ? <X size="40" /> : <Menu size="40" />}
       </div>
-      <nav className={open === true ? 'navbar__menu navbar__menu--open' : 'navbar__menu'}>
+      <nav
+        className={
+          open === true ? 'navbar__menu navbar__menu--open' : 'navbar__menu'
+        }
+      >
         <ul className="navbar__links">
           <li>
             <Link to="/" onClick={() => setOpen(false)}>
@@ -29,7 +39,11 @@ const Navbar = (props) => {
             </Link>
           </li>
           <li>
-            <a href="https://blog.luisfalconmx.com/" target="_blank">
+            <a
+              href="https://blog.luisfalconmx.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Blog
             </a>
           </li>

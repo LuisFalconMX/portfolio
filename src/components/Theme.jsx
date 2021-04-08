@@ -1,9 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import '@styles/components/Theme.pcss'
 import { ExternalLink } from 'react-feather'
 import Button from '@components/Button'
-import ThemeCover from '@images/origin-theme-cover.png'
 
 const Theme = (props) => {
   const { title, url, cover } = props
