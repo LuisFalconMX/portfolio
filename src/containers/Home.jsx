@@ -84,7 +84,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.API_ENDPOINT}/packages`)
+      .get(`${API}/packages`)
       .then(({ data }) => {
         let count = 0
         setPackages(data.filter((item) => count++ <= 2))
@@ -94,7 +94,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.API_ENDPOINT}/themes`)
+      .get(`${API}/themes`)
       .then(({ data }) => {
         let count = 0
         setThemes(data.filter((item) => count++ <= 3))
